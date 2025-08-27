@@ -1,6 +1,6 @@
 import customtkinter
 from tkinterdnd2 import TkinterDnD
-from thinning import func_thinning
+from Thinning import func_thinning
 from tkinter import filedialog
 import os
 
