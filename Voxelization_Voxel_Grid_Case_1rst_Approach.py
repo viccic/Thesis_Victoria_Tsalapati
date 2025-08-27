@@ -164,7 +164,7 @@ def voxels_creation(branches_las_path, leaves_las_path, output_obj_file_path_bra
 
     # Prepare output path
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    output_path = os.path.join(script_dir, "Output")
+    output_path = os.path.join(script_dir, "Output_Voxel_Grid_Case_1rst_Approach")
     synthetic_las_path = os.path.join(output_path, "SyntheticLAS.las")
 
     # Write new_branches LAS to file

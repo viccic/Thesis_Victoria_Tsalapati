@@ -60,7 +60,7 @@ def cubes(xyz_ply, size, output_obj_file_path):
 
     print(f"OBJ file created at: {output_obj_file_path}")
 
-    return output_obj_file_path
+    return None
 
 
 

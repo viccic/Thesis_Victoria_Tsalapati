@@ -3,7 +3,7 @@ import laspy
 import numpy as np
 import open3d as o3d
 from matplotlib import pyplot as plt
-from Voxelization import voxels_creation
+from Voxelization_Voxel_Grid_Case_1rst_Approach import voxels_creation
 import time
 
 
@@ -50,20 +50,19 @@ def main():
 
     # Define the location of files
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    input_path = os.path.join(script_dir, "Input")
+    input_path = os.path.join(script_dir, "Input_Voxel_Grid_Case_1rst_Approach")
     branches_las_file = [f for f in os.listdir(input_path) if f.endswith("Branches.las")]
     branches_las_path = os.path.join(input_path, branches_las_file[0])
     leaves_las_file = [f for f in os.listdir(input_path) if f.endswith("Leaves.las")]
     leaves_las_path = os.path.join(input_path, leaves_las_file[0])
 
     # Create the outputs
-    os.makedirs("Output", exist_ok=True)
-    output_path = os.path.join(script_dir, "Output")
+    os.makedirs("Output_Voxel_Grid_Case_1rst_Approach", exist_ok=True)
+    output_path = os.path.join(script_dir, "Output_Voxel_Grid_Case_1rst_Approach")
 
     # VOXELS CASE
     time_recorder = []
-    # voxel_sizes = [0.03, 0.05, 0.07, 0.1, 0.3, 0.5]
-    voxel_sizes = [0.03]
+    voxel_sizes = [0.03, 0.05, 0.07, 0.1, 0.3, 0.5]
     branches_xyz_file_path = os.path.join(output_path, "Branches.xyz")
     leaves_xyz_file_path = os.path.join(output_path, "Leaves.xyz")
 
@@ -77,7 +76,8 @@ def main():
         output_obj_file_path_leaves = os.path.join(output_path, "voxels_" + str(i) + "_leaves.obj")
         voxel_size = i
 
-        txt_file_path = os.path.join(output_path, "voxel_counts_size_" + str(voxel_size) + ".txt")
+        txt_file_path = os.path.join(output_path, "voxel_counts_size_" + str(voxel_size) + "_m.txt")
+        txt_file_path_time = os.path.join(output_path, "Processing_time_per_voxel_size.txt")
         voxels_creation(branches_las_path, leaves_las_path, output_obj_file_path_branches, output_obj_file_path_leaves, voxel_size, txt_file_path)
 
         end_time = time.time()
@@ -85,7 +85,7 @@ def main():
         print("End of voxel construction of size of " + str(voxel_size) + "m")
 
     plt.plot(voxel_sizes, time_recorder, color='blue', marker='o',linestyle='-')
-    plt.title("Amount of time spent for processing per voxel size")
+    plt.title("Amount of time spent for processing per voxel size (1rst Approach)")
     plt.xlabel("Voxel size (m)")
     plt.ylabel("Time (s)")
     plt.savefig(os.path.join(output_path, "plot_voxel_size.png"))
@@ -93,6 +93,13 @@ def main():
 
     print("Voxel sizes: ", voxel_sizes)
     print("Time: ", time_recorder)
+
+    # Open the file
+    with open(txt_file_path_time, 'a') as f:
+        line_1 = "Voxel sizes:" + str(voxel_sizes)
+        line_2 = "Time: " + str(time_recorder)
+        f.write(line_1)
+        f.write(line_2)
 
 if __name__ == "__main__":
     main()

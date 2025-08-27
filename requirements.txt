@@ -6,3 +6,4 @@ matplotlib==3.10.5
 customtkinter==5.2.2
 tkinterdnd2
 scipy
+laspy

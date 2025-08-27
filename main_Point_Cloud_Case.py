@@ -34,16 +34,35 @@ def main():
 
     start_time = time.time()
 
+    # Define the location of files
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    input_path = os.path.join(script_dir, "Input_Point_Cloud_Case")
+    las_file = [f for f in os.listdir(input_path) if f.endswith(".las")]
+    initial_las_path = os.path.join(input_path, las_file[0])
+
+    # Create the outputs
+    os.makedirs("Output_Point_Cloud_Case", exist_ok=True)
+    output_path = os.path.join(script_dir, "Output_Point_Cloud_Case")
+
+    # Create output PLY file name based on LAS file
+    base_name = os.path.splitext(las_file[0])[0]
+    out_points_ply = os.path.join(output_path, base_name + ".ply")
+
     # Convert the cropped las file to ply file
-    out_points_ply = 'C:/THESIS_TUDELFT/DATA_AHN5/merged_tree_leaves_10.ply'
-    out_points_las = 'C:/THESIS_TUDELFT/DATA_AHN5/merged_tree_leaves_10.las'
-    las_to_ply(out_points_las, out_points_ply)
+    # out_points_ply = 'C:/THESIS_TUDELFT/DATA_AHN5/merged_tree_leaves_10.ply'
+    las_to_ply(initial_las_path, out_points_ply)
 
     # POINT CLOUD CASE
-    out_point_cloud_obj = os.path.join("C:/THESIS_TUDELFT/Point_cloud_case_output/merged_tree_leaves_10.obj")
-    point_cloud = cubes(out_points_ply, 0.02, out_point_cloud_obj)
-
+    out_point_cloud_obj = os.path.join(output_path, base_name + ".obj")
+    cubes(out_points_ply, 0.02, out_point_cloud_obj)
+    txt_file_path_time = os.path.join(output_path, "Processing_time.txt")
     end_time = time.time()
+
+    # Open the file
+    with open(txt_file_path_time, 'a') as f:
+        line = "Elapsed time: {:.2f} seconds".format(end_time - start_time)
+        f.write(line + "\n")
+
     print("Elapsed time: {:.2f} seconds".format(end_time - start_time))
 
 if __name__ == "__main__":
