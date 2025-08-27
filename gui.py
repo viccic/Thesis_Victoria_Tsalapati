@@ -1,10 +1,10 @@
 import customtkinter
-import tkinterDnD
+from tkinterdnd2 import TkinterDnD
 from thinning import func_thinning
 from tkinter import filedialog
 import os
 
-customtkinter.set_ctk_parent_class(tkinterDnD.Tk)
+customtkinter.set_ctk_parent_class(TkinterDnD.Tk)
 customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("blue")
 
