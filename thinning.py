@@ -31,7 +31,7 @@ def main():
     with open(txt_file, "r") as f:
         first_line = f.readline().strip()
         parts = first_line.split()
-        percentage = parts[1]
+        percentage = int(parts[1])
 
     base_name = os.path.splitext(las_file[0])[0]
     output_las_path = os.path.join(output_path, base_name + "_" + str(percentage) + "_thinned.ply")
