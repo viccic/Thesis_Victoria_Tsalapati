@@ -7,3 +7,7 @@ customtkinter==5.2.2
 tkinterdnd2
 scipy
 laspy[lazrs,laszip]
+alphashape
+trimesh
+shapely
+scikit-learn

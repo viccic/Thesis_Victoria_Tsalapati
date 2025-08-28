@@ -1,0 +1,6 @@
+dbscan_eps: 0.8
+dbscan_min_samples: 3
+inner_radius: 1.5
+outer_radius: 2.0
+height: 0.8
+spacing: 1.0

@@ -25,12 +25,8 @@ def las_to_ply(las_path, ply_path):
 
     # Save to PLY
     o3d.io.write_point_cloud(ply_path, pcd)
-    print(f"Saved PLY to {ply_path}")
+    # print(f"Saved PLY to {ply_path}")
 
-# Define file paths
-# las_path = 'C:/THESIS_TUDELFT/DATA_AHN5/37EN2_16_cropped_tree_crown.las'
-# ply_path = "C:/THESIS_TUDELFT/DATA_AHN5/37EN2_16_cropped_tree_crown.ply"
-# output_high_points_obj = "C:/THESIS_TUDELFT/DATA_AHN5/37EN2_16_Tree_Crown_convex_hull.obj"
 
 def func_TreeCrownCreation(las_path, ply_path, output_high_points_obj):
 

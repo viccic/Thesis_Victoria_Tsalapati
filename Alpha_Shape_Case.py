@@ -1,6 +1,5 @@
 import laspy
 import numpy as np
-import matplotlib.pyplot as plt
 from alphashape import alphashape
 import trimesh
 from shapely.geometry import MultiPolygon
@@ -13,6 +12,9 @@ for i in range(1,62):
         print("Entering the folder of tree " + str(i) + "...")
 
         # Load LAS
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        input_path = os.path.join(script_dir, "Alpha_Shape_Case")
+
         las = laspy.read("C:/THESIS_TUDELFT/DATA_AHN5/clean_trees/" + str(i) + "/merged_tree_" + str(i) + "_syn.las")
         points = np.vstack((las.x, las.y, las.z)).T
 
