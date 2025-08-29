@@ -5,17 +5,15 @@ import trimesh
 from shapely.geometry import MultiPolygon
 import os
 
-#-----------first OK------------------------#
+script_dir = os.path.dirname(os.path.abspath(__file__))
+input_path = os.path.join(script_dir, "Input_Alpha_Shape_Case")
+las_files = [f for f in os.listdir(input_path) if f.endswith(".las")]
 
-for i in range(1,62):
-    if i!= 39:
-        print("Entering the folder of tree " + str(i) + "...")
+for individual in las_files:
+        print("Processing the tree file with name " + str(individual) + "...")
 
         # Load LAS
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        input_path = os.path.join(script_dir, "Alpha_Shape_Case")
-
-        las = laspy.read("C:/THESIS_TUDELFT/DATA_AHN5/clean_trees/" + str(i) + "/merged_tree_" + str(i) + "_syn.las")
+        las = laspy.read(individual)
         points = np.vstack((las.x, las.y, las.z)).T
 
         mean_x = np.mean(points[:,0])
@@ -23,9 +21,6 @@ for i in range(1,62):
         mean_z = np.mean(points[:,2])
 
         new_points = np.vstack((las.x - mean_x, las.y - mean_y, las.z - mean_z)).T
-
-        # # Downsample if needed
-        # points = points[::100]  # reduce density for performance
 
         for j in [0.5, 1.0, 1.5]:
 
@@ -45,9 +40,16 @@ for i in range(1,62):
                 mesh = alpha
 
             # Define output path
-            obj_path = "C:/THESIS_TUDELFT/DATA_AHN5/clean_trees/" + str(i) + "/alpha_" + str(j) + "_syn.obj"
-            os.makedirs(os.path.dirname(obj_path), exist_ok=True)
+            base_name, _ = os.path.splitext(individual[0])
+            output_path = os.path.join(script_dir, "Output_Alpha_Shape_Case")
+            j_str = str(j).replace('.', '_')
 
+            obj_path = os.path.join(
+                output_path,
+                str(individual),
+                f"_{base_name}_alpha_shape_ct{j_str}.obj"
+            )
+            os.makedirs(os.path.dirname(obj_path), exist_ok=True)
             # Export as OBJ
             with open(obj_path, "wb") as f:
                 f.write(trimesh.exchange.obj.export_obj(mesh).encode("utf-8"))
@@ -66,7 +68,14 @@ for i in range(1,62):
                     else:
                         new_lines.append(line)
 
-            with open("C:/THESIS_TUDELFT/DATA_AHN5/clean_trees/" + str(i) + "/alpha_shape_" + str(j) + "_centered_tree" + str(i) + "_syn.obj", "w") as f:
+            obj_centered_path = os.path.join(
+                output_path,
+                str(individual),
+                f"_{base_name}_alpha_shape_ct{j_str}_centered.obj"
+            )
+            os.makedirs(os.path.dirname(obj_path), exist_ok=True)
+
+            with open(obj_centered_path, "w") as f:
                 f.writelines(new_lines)
 
 # # Load LAS
