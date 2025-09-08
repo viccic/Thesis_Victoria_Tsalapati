@@ -120,7 +120,7 @@ def generate_obj_voxel_from_dictionary(voxels_dict, voxel_size, output_obj_file_
                                f"{face[2] + vertex_index - 1} {face[3] + vertex_index - 1}\n")
             vertex_index += 8  # Move to the next voxel
 
-def voxels_creation(las_file_path, xyz_file_path, output_obj_file_path_1, output_obj_file_path_2, output_obj_file_path_3, output_obj_file_path_4, voxel_size, txt_file_path):
+def voxels_creation(las_file_path, output_obj_file_path_1, output_obj_file_path_2, output_obj_file_path_3, output_obj_file_path_4, voxel_size, txt_file_path):
 
     # Read LAS file
     las = laspy.read(las_file_path)

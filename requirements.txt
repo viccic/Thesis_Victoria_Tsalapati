@@ -1,11 +1,6 @@
-laspy==2.5.4
-numpy==2.3.2
-open3d==0.19.0
-scipy==1.16.1
-matplotlib==3.10.5
-customtkinter==5.2.2
-tkinterdnd2
-scipy
+numpy
+open3d
+matplotlib
 laspy[lazrs,laszip]
 alphashape
 trimesh
