@@ -23,10 +23,24 @@ This repository contains the executables used to generate geometric 3D tree repr
 - Place the input point cloud files of separated trees in the **Input_Alpha_Shape_Case** folder
 - Run *Alpha_Shape_Case.py* 
 - Access the results per each individual tree inside the **Output_Alpha_Shape_Case/<name_of_las_file>** folder:
-  1. OBJ file of centered points of each alpha parameters (0.5, 1.0, 1.5)
-  2. OBJ file of uncentered points of each alpha parameters (0.5, 1.0, 1.5)
+  1. OBJ file of centered points of each alpha parameters (0.5, 1.0, 1.5),
+  2. OBJ file of uncentered points of each alpha parameters (0.5, 1.0, 1.5) (these files were used for the simulations)
 
 
 ### Convex Hull Case
- 
 
+- Place the input point cloud files of separated trees in the **Input_Convex_Hull_Case** folder
+- Run *main_Convex_Hull_Case.py* 
+- Access the results per each individual tree inside the **Output_Convex_Hull_Case/<name_of_las_file>** folder:
+ 
+### Voxel Grid Case (1rst approach) for trees with canopy
+
+- Place the input point cloud files of point cloud of trees without canopy (named as *Branches.las* or configure the las name) and of leaves (named as *Leaves.las* or configure the las name) in the **Input_Voxel_Grid_Case_1rst_Approach** folder
+- Run *Voxelization_Voxel_Grid_Case_1rst_Approach.py* 
+- Access the results per voxel size inside the **Output_Voxel_Grid_Case_1rst_Approach** folder:
+  1. OBJ file of voxels_<voxel size>_leaves.obj,
+  2. OBJ file of voxels_<voxel size>_branches.obj,
+  3. TXT file containing the information about the voxel grid (maximum and minimum number of points inside a voxel, number of leaves and branches voxels),
+  4. TXT file containing the processing duration.
+  
+### Voxel Grid Case (2nd approach)

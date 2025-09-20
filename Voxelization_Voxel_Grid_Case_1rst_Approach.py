@@ -202,7 +202,10 @@ def voxels_creation(branches_las_path, leaves_las_path, output_obj_file_path_bra
         j = 0
         for voxels_dict in voxels_dict_list:
             generate_obj_voxel_from_dictionary(voxels_dict, voxel_size, output_obj_file_paths[j])
-            line = f"Total voxels saved at voxels_dict_{i}: {len(voxels_dict)}"
+            if i == 1:
+                line = f"Total voxels saved at leaves: {len(voxels_dict)}"
+            elif i == 2:
+                line = f"Total voxels saved at branches: {len(voxels_dict)}"
             # print(line)
             f.write(line + "\n")
             i += 1

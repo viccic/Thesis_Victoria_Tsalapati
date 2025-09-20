@@ -60,7 +60,7 @@ def main():
 
     # VOXELS CASE
     time_recorder = []
-    voxel_sizes = [0.1]
+    voxel_sizes = [0.03, 0.05, 0.1, 0.3, 0.5]
     xyz_file_path = os.path.join(output_path, "Study_area.xyz")
 
     las_to_xyz(initial_las_path, xyz_file_path)
