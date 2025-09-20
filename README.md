@@ -42,7 +42,7 @@ This repository contains the executables used to generate geometric 3D tree repr
   1. XYZ files of *Branches.las* and *Leaves.las*, 
   2. LAS file of `leaves_converted.las` (LAS file of leaves with only the following fields: X, Y, Z, intensity and label,
   3. LAS file of `SyntheticLAS.las` (LAS file branches and leaves with only the following fields: X, Y, Z, intensity and label,
-  4. PNG file of plot processing duration per voxel size
+  4. PNG file of plot of processing duration per voxel size
   
   and for each voxel size:
   1. OBJ file of `voxels_<voxel size>_leaves.obj` ,
@@ -56,9 +56,9 @@ This repository contains the executables used to generate geometric 3D tree repr
 - Run *main_Voxel_Grid_Case_2nd_Approach.py* 
 - Access the results per voxel size and inside the **Output_Voxel_Grid_Case_2nd_Approach** folder:
   1. XYZ file of point cloud,
-  2. PNG file of plot processing duration per voxel size
+  2. PNG file of plot of processing duration per voxel size
   
   and for each voxel size and number of grid:
   1. OBJ file of `"voxels_<voxel size>_<number of grid>_m.obj"`,
-  2. TXT file containing the information about the voxel grid (maximum and minimum number of points inside a voxel, number voxels per grid),
+  2. TXT file containing the information about the voxel grid (maximum and minimum number of points inside a voxel, number of voxels per grid),
   3. TXT file containing the processing duration.
