@@ -4,7 +4,7 @@ This repository contains the executables used to generate geometric 3D tree repr
 ## Usage
 ### Prerequisites
 
-- Python 3.x
+- Python 3.11
 - Libraries: laspy, numpy, open3d, scikit-learn, trimesh, alphashape, shapely 
 - LiDAR data in '.LAS' or '.LAZ' format
 
