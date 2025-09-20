@@ -1,7 +1,6 @@
 from CanopyExtraction import extracting_tree_crown_points
 from RemoveIndices import func_remove_indices
 from TreeCrownCreation import func_TreeCrownCreation
-import time
 import ast
 import os
 

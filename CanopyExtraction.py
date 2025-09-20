@@ -60,25 +60,6 @@ def delete_points(las_point_cloud, center_x, center_y, inner_radius, minimum_hei
 
 def func_DBSCAN(las, las_points, eps, min_samples, image_path):
 
-    # # getting scaling and offset parameters
-    # las_scaleX = las.header.scale[0]
-    # las_offsetX = las.header.offset[0]
-    # las_scaleY = las.header.scale[1]
-    # las_offsetY = las.header.offset[1]
-    # las_scaleZ = las.header.scale[2]
-    # las_offsetZ = las.header.offset[2]
-
-    # # calculating coordinates
-    # p_X = np.array((las_points.x * las_scaleX) + las_offsetX)
-    # p_Y = np.array((las_points.y * las_scaleY) + las_offsetY)
-    # p_Z = np.array((las_points.z * las_scaleZ) + las_offsetZ)
-
-    # # plotting points
-    # fig = plt.figure()
-    # ax = fig.add_subplot(111, projection='3d')
-    # ax.scatter(p_X, p_Y, p_Z, c='r', marker='o')
-    # plt.show()
-
     low_las = laspy.create(point_format=las.header.point_format, file_version=las.header.version)
     low_las.header = las.header
     low_las.points = las_points
@@ -90,7 +71,6 @@ def func_DBSCAN(las, las_points, eps, min_samples, image_path):
 
     # Number of clusters in labels, ignoring noise if present.
     n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
-    # n_noise_ = list(labels).count(-1)
 
     unique_labels = set(labels)
     core_samples_mask = np.zeros_like(labels, dtype=bool)
@@ -133,7 +113,6 @@ def func_DBSCAN(las, las_points, eps, min_samples, image_path):
 def extracting_tree_crown_points(laz_path, out_low_las, las_folder_path, ring_folder_path, image_path, dbscan_eps, dbscan_min_samples, inner_radius, outer_radius, height, spacing):
 
     las = laspy.read(laz_path)
-    points = np.vstack((las.x, las.y, las.z)).T
 
     # Create a new LAS file from low_points
     low_las = laspy.create(point_format=las.header.point_format, file_version=las.header.version)
@@ -224,23 +203,6 @@ def extracting_tree_crown_points(laz_path, out_low_las, las_folder_path, ring_fo
 
     return combined_deletion
 
-    # indices_to_remove = [62,55,54,53,49,48,44,38,25,19]  # must be in descending order
-    # for i in indices_to_remove:
-    #     del combined_deletion[i]
-    # print('Outliers deleted')
-    #
-    # combined_deletion_mask = np.ones(len(las.x), dtype=bool)
-    # for mask in combined_deletion:
-    #     combined_deletion_mask &= mask
-    #
-    # cropped_las = laspy.create(point_format=las.header.point_format, file_version=las.header.version)
-    # cropped_las.header = las.header
-    # for dim in las.point_format.dimension_names:
-    #     if hasattr(las, dim):
-    #         setattr(cropped_las, dim, getattr(las, dim)[combined_deletion_mask])
-    # cropped_las.write(tree_crown_las)
-    #
-    # print("Remaining after mask:", np.sum(combined_deletion_mask))
 
 
 

@@ -3,10 +3,8 @@ import os
 
 def cubes(xyz_ply, size, output_obj_file_path):
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    assets_path = os.path.join(script_dir, "assets")
 
     file_name = os.path.basename(xyz_ply)
-    file = os.path.splitext(file_name)
 
     # Read the PLY file
     point_cloud = o3d.io.read_point_cloud(xyz_ply)

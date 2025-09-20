@@ -10,7 +10,7 @@ def las_to_ply(las_path, ply_path):
     las = laspy.read(las_path)
     points = np.vstack((las.x, las.y, las.z)).transpose()
 
-    # Optional: get color if available
+    # Get color if available
     has_color = hasattr(las, "red") and hasattr(las, "green") and hasattr(las, "blue")
     if has_color:
         colors = np.vstack((las.red, las.green, las.blue)).transpose()
@@ -49,7 +49,6 @@ def main():
     out_points_ply = os.path.join(output_path, base_name + ".ply")
 
     # Convert the cropped las file to ply file
-    # out_points_ply = 'C:/THESIS_TUDELFT/DATA_AHN5/merged_tree_leaves_10.ply'
     las_to_ply(initial_las_path, out_points_ply)
 
     # POINT CLOUD CASE
