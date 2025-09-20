@@ -62,7 +62,7 @@ def main():
         line = "Elapsed time: {:.2f} seconds".format(end_time - start_time)
         f.write(line + "\n")
 
-    print("Elapsed time: {:.2f} seconds".format(end_time - start_time))
+    # print("Elapsed time: {:.2f} seconds".format(end_time - start_time))
 
 if __name__ == "__main__":
     main()

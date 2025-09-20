@@ -13,5 +13,8 @@ This repository contains the executables used to generate geometric 3D tree repr
 
 - Place the input point cloud data in the **Input_Point_Cloud_Case** folder
 - Run *main_Point_Cloud_Case.py* 
-- 
+- Access the results in the **Output_Point_Cloud_Case** folder:
+  1. PLY file of the input point cloud,
+  2. OBJ file of the point cloud representation,
+  3. TXT file containing the processing duration.
 
