@@ -45,10 +45,10 @@ This repository contains the executables used to generate geometric 3D tree repr
   4. PNG file of plot processing duration per voxel size
   
   and for each voxel size:
-  5. OBJ file of `voxels_<voxel size>_leaves.obj` ,
-  6. OBJ file of `voxels_<voxel size>_branches.obj`,
-  7. TXT file containing the information about the voxel grid (maximum and minimum number of points inside a voxel, number of leaves and branches voxels),
-  8. TXT file containing the processing duration.
+  1. OBJ file of `voxels_<voxel size>_leaves.obj` ,
+  2. OBJ file of `voxels_<voxel size>_branches.obj`,
+  3. TXT file containing the information about the voxel grid (maximum and minimum number of points inside a voxel, number of leaves and branches voxels),
+  4. TXT file containing the processing duration.
   
 ### Voxel Grid Case (2nd approach)
 
@@ -59,6 +59,6 @@ This repository contains the executables used to generate geometric 3D tree repr
   2. PNG file of plot processing duration per voxel size
   
   and for each voxel size and number of grid:
-  3. OBJ file of `"voxels_<voxel size>_<number of grid>_m.obj"`,
-  4. TXT file containing the information about the voxel grid (maximum and minimum number of points inside a voxel, number voxels per grid),
-  5. TXT file containing the processing duration.
+  1. OBJ file of `"voxels_<voxel size>_<number of grid>_m.obj"`,
+  2. TXT file containing the information about the voxel grid (maximum and minimum number of points inside a voxel, number voxels per grid),
+  3. TXT file containing the processing duration.
