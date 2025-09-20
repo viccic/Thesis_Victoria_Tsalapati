@@ -13,7 +13,8 @@ for individual in las_files:
         print("Processing the tree file with name " + str(individual) + "...")
 
         # Load LAS
-        las = laspy.read(individual)
+        file_path = os.path.join(input_path, individual)
+        las = laspy.read(file_path)
         points = np.vstack((las.x, las.y, las.z)).T
 
         mean_x = np.mean(points[:,0])
@@ -40,14 +41,14 @@ for individual in las_files:
                 mesh = alpha
 
             # Define output path
-            base_name, _ = os.path.splitext(individual[0])
+            base_name, _ = os.path.splitext(individual)
             output_path = os.path.join(script_dir, "Output_Alpha_Shape_Case")
             j_str = str(j).replace('.', '_')
 
             obj_path = os.path.join(
                 output_path,
                 str(individual),
-                f"_{base_name}_alpha_shape_ct{j_str}.obj"
+                f"{base_name}_alpha_shape_{j_str}_centered.obj"
             )
             os.makedirs(os.path.dirname(obj_path), exist_ok=True)
 
@@ -72,7 +73,7 @@ for individual in las_files:
             obj_centered_path = os.path.join(
                 output_path,
                 str(individual),
-                f"_{base_name}_alpha_shape_ct{j_str}_centered.obj"
+                f"{base_name}_alpha_shape_{j_str}.obj"
             )
             os.makedirs(os.path.dirname(obj_path), exist_ok=True)
 
