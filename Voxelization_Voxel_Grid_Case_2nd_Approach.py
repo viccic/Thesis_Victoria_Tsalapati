@@ -125,14 +125,6 @@ def voxels_creation(las_file_path, output_obj_file_path_1, output_obj_file_path_
     # Read LAS file
     las = laspy.read(las_file_path)
 
-    # # Open the output .xyz file for writing
-    # with open(xyz_file_path, "w") as xyz_file:
-    #     for x, y, z in zip(las.x, las.y, las.z):
-    #         xyz_file.write(f"{x} {y} {z}\n")
-    #
-    # # Load a point cloud
-    # pcd = o3d.io.read_point_cloud(xyz_file_path)
-
     # Convert point cloud to a voxel grid with a specific voxel size
     voxel_grid = voxelize_las(las, voxel_size)
 
@@ -146,9 +138,6 @@ def voxels_creation(las_file_path, output_obj_file_path_1, output_obj_file_path_
 
     voxels_dict_list = [voxels_dict_1, voxels_dict_2, voxels_dict_3, voxels_dict_4]
     output_obj_file_paths = [output_obj_file_path_1, output_obj_file_path_2, output_obj_file_path_3, output_obj_file_path_4]
-    # o3d.visualization.draw_geometries([voxel_grid])
-
-    # txt_file_path = "C:/THESIS_TUDELFT/voxel_case/voxel_counts_size" + str(voxel_size) + ".txt"
 
     # Open the file
     with open(txt_file_path, 'a') as f:

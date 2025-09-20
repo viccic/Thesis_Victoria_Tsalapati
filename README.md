@@ -11,7 +11,7 @@ This repository contains the executables used to generate geometric 3D tree repr
 ## Tree 3D representations
 ### Point Cloud Case
 
-- Place the input point cloud data in the **Input_Point_Cloud_Case** folder
+- Place the input point cloud in the **Input_Point_Cloud_Case** folder
 - Run *main_Point_Cloud_Case.py* 
 - Access the results in the **Output_Point_Cloud_Case** folder:
   1. PLY file of the input point cloud,
@@ -35,12 +35,29 @@ This repository contains the executables used to generate geometric 3D tree repr
  
 ### Voxel Grid Case (1rst approach) for trees with canopy
 
-- Place the input point cloud files of point cloud of trees without canopy (named as *Branches.las* or configure the las name) and of leaves (named as *Leaves.las* or configure the las name) in the **Input_Voxel_Grid_Case_1rst_Approach** folder
-- Run *Voxelization_Voxel_Grid_Case_1rst_Approach.py* 
+- Place the input point cloud files of trees without leaves (named as *Branches.las* or configure the las name) and of leaves (named as *Leaves.las* or configure the las name) in the **Input_Voxel_Grid_Case_1rst_Approach** folder
+- Run *main_Voxel_Grid_Case_1rst_Approach.py* 
 - Access the results per voxel size inside the **Output_Voxel_Grid_Case_1rst_Approach** folder:
-  1. OBJ file of `voxels_<voxel size>_leaves.obj` ,
-  2. OBJ file of `voxels_<voxel size>_branches.obj`,
-  3. TXT file containing the information about the voxel grid (maximum and minimum number of points inside a voxel, number of leaves and branches voxels),
-  4. TXT file containing the processing duration.
+  1. XYZ files of *Branches.las* and *Leaves.las*, 
+  2. LAS file of `leaves_converted.las` (LAS file of leaves with only the following fields: X, Y, Z, intensity and label,
+  3. LAS file of `SyntheticLAS.las` (LAS file branches and leaves with only the following fields: X, Y, Z, intensity and label
+  4. PNG file of plot processing duration per voxel size
+  
+  and for each voxel size:
+  5. OBJ file of `voxels_<voxel size>_leaves.obj` ,
+  6. OBJ file of `voxels_<voxel size>_branches.obj`,
+  7. TXT file containing the information about the voxel grid (maximum and minimum number of points inside a voxel, number of leaves and branches voxels),
+  8. TXT file containing the processing duration.
   
 ### Voxel Grid Case (2nd approach)
+
+- Place the input point cloud in the **Input_Voxel_Grid_Case_2nd_Approach** folder
+- Run *main_Voxel_Grid_Case_2nd_Approach.py* 
+- Access the results per voxel size and inside the **Output_Voxel_Grid_Case_2nd_Approach** folder:
+  1. XYZ file of point cloud,
+  2. PNG file of plot processing duration per voxel size
+  
+  and for each voxel size and number of grid:
+  3. OBJ file of `"voxels_<voxel size>_<number of grid>_m.obj"`,
+  4. TXT file containing the information about the voxel grid (maximum and minimum number of points inside a voxel, number voxels per grid),
+  5. TXT file containing the processing duration.

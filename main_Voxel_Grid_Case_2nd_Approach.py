@@ -68,14 +68,14 @@ def main():
     for i in voxel_sizes:
         start_time = time.time()
         print("Start of voxel construction of size of " + str(i) + " m")
-        output_obj_file_path_1 = os.path.join(output_path, "voxels_sum" + str(i) + "_1_m.obj")
-        output_obj_file_path_2 = os.path.join(output_path, "voxels_sum" + str(i) + "_2_m.obj")
-        output_obj_file_path_3 = os.path.join(output_path, "voxels_sum" + str(i) + "_3_m.obj")
-        output_obj_file_path_4 = os.path.join(output_path, "voxels_sum" + str(i) + "_4_m.obj")
+        output_obj_file_path_1 = os.path.join(output_path, "voxels_" + str(i) + "_1_m.obj")
+        output_obj_file_path_2 = os.path.join(output_path, "voxels_" + str(i) + "_2_m.obj")
+        output_obj_file_path_3 = os.path.join(output_path, "voxels_" + str(i) + "_3_m.obj")
+        output_obj_file_path_4 = os.path.join(output_path, "voxels_" + str(i) + "_4_m.obj")
         voxel_size = i
 
         txt_file_path = os.path.join(output_path, "voxel_counts_size_sum_" + str(voxel_size) + "_m.txt")
-        txt_file_path_time = os.path.join(output_path, "Processing_time_per_voxel_size_sum.txt")
+        txt_file_path_time = os.path.join(output_path, "Processing_time_per_voxel_size.txt")
         voxels_creation(initial_las_path, output_obj_file_path_1, output_obj_file_path_2, output_obj_file_path_3, output_obj_file_path_4, voxel_size, txt_file_path)
 
         end_time = time.time()
