@@ -38,8 +38,8 @@ This repository contains the executables used to generate geometric 3D tree repr
 - Place the input point cloud files of point cloud of trees without canopy (named as *Branches.las* or configure the las name) and of leaves (named as *Leaves.las* or configure the las name) in the **Input_Voxel_Grid_Case_1rst_Approach** folder
 - Run *Voxelization_Voxel_Grid_Case_1rst_Approach.py* 
 - Access the results per voxel size inside the **Output_Voxel_Grid_Case_1rst_Approach** folder:
-  1. OBJ file of voxels_<voxel size>_leaves.obj,
-  2. OBJ file of voxels_<voxel size>_branches.obj,
+  1. OBJ file of voxels_/<voxel size>/_leaves.obj,
+  2. OBJ file of voxels_/<voxel size>/_branches.obj,
   3. TXT file containing the information about the voxel grid (maximum and minimum number of points inside a voxel, number of leaves and branches voxels),
   4. TXT file containing the processing duration.
   
