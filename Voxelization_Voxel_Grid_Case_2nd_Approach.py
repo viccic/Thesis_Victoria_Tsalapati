@@ -86,8 +86,7 @@ def examine_voxel(las_point_cloud, voxel_grid, voxel_size, voxels_dict_1, voxels
 
         line_1 = "Maximum number of points inside a voxel: " + str(max_number_points)
         line_2 = "Minimum number of points inside a voxel: " + str(min_number_points)
-        # print(line_1)
-        # print(line_2)
+
         f.write(line_1 + "\n")
         f.write(line_2 + "\n")
 

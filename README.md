@@ -32,6 +32,7 @@ This repository contains the executables used to generate geometric 3D tree repr
 - Place the input point cloud files of separated trees in the **Input_Convex_Hull_Case** folder
 - Run *main_Convex_Hull_Case.py* 
 - Access the results per each individual tree inside the **Output_Convex_Hull_Case/<name_of_las_file>** folder:
+
  
 ### Voxel Grid Case (1rst approach) for trees with canopy
 
@@ -40,7 +41,7 @@ This repository contains the executables used to generate geometric 3D tree repr
 - Access the results per voxel size inside the **Output_Voxel_Grid_Case_1rst_Approach** folder:
   1. XYZ files of *Branches.las* and *Leaves.las*, 
   2. LAS file of `leaves_converted.las` (LAS file of leaves with only the following fields: X, Y, Z, intensity and label,
-  3. LAS file of `SyntheticLAS.las` (LAS file branches and leaves with only the following fields: X, Y, Z, intensity and label
+  3. LAS file of `SyntheticLAS.las` (LAS file branches and leaves with only the following fields: X, Y, Z, intensity and label,
   4. PNG file of plot processing duration per voxel size
   
   and for each voxel size:
