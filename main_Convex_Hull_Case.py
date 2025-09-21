@@ -17,9 +17,9 @@ output_path = os.path.join(script_dir, "Output_Convex_Hull_Case")
 out_low_las = os.path.join(output_path, f"{base_name}_Cropped_low.las")
 tree_crown_las_path = os.path.join(output_path, f"{base_name}_Tree_crown.las")
 os.makedirs("Output_Convex_Hull_Case/labelled_las", exist_ok=True)
-os.makedirs("Output_Convex_Hull_Case/rings", exist_ok=True)
+os.makedirs("Output_Convex_Hull_Case/annuli", exist_ok=True)
 folder_path_separated_las_files = os.path.join(output_path, "labelled_las")
-folder_path_rings = os.path.join(output_path, "rings")
+folder_path_rings = os.path.join(output_path, "annuli")
 
 # Define parameters
 parameters_DBSCAN_path = os.path.join(input_path, "Parameters_DBSCAN.txt")

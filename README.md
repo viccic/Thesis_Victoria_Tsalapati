@@ -29,9 +29,14 @@ This repository contains the executables used to generate geometric 3D tree repr
 
 ### Convex Hull Case
 
-- Place the input point cloud files of separated trees in the **Input_Convex_Hull_Case** folder
+- Place the input point cloud and complete the parameters of DBSCAN (maximum distance and minimum sample points), height and radius of inner and outer ring of the annulus and spacing value (use exactly this order) in **Parameters_DBSCAN.txt** in the **Input_Convex_Hull_Case** folder
 - Run *main_Convex_Hull_Case.py* 
-- Access the results per each individual tree inside the **Output_Convex_Hull_Case/<name_of_las_file>** folder:
+- Receive `<name of input point cloud file>_Cropped_low.las`, PNG file of the estimated clusters and *labelled_las* and *annuli* folder (clustered lower points and the corresponding highest annulus).
+- Insert the indices of clusters in descending order to be removed (inspect clusters (e.g., in CloudCompare), collect the indices that are not stem and collect the indices of the annuli that include them)
+- Access the results the **Output_Convex_Hull_Case** folder:
+  1. `<name of input point cloud file>_Tree_crown.las`
+  2. `<name of input point cloud file>_Tree_crown.ply`
+  3. `<name of input point cloud file>__Tree_Crown_convex_hull.obj`
 
  
 ### Voxel Grid Case (1rst approach) for trees with canopy

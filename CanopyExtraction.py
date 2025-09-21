@@ -152,8 +152,9 @@ def extracting_tree_crown_points(laz_path, out_low_las, las_folder_path, ring_fo
 
     print(f"Initial point count: {len(las.x)}")
 
+    f = 0
     # Iterate over label files
-    for j, filename in enumerate(las_files):
+    for filename in las_files:
         file_path = os.path.join(las_folder_path, filename)
         las_label = laspy.read(file_path)
         if len(las_label.x) == 0:
@@ -164,7 +165,7 @@ def extracting_tree_crown_points(laz_path, out_low_las, las_folder_path, ring_fo
         origin_y = np.mean(las_label.y)
         origin_z = np.min(las_label.z)
 
-        print("Cluster: ", j)
+        print("Cluster: ", f)
         print("origin_x:", origin_x, "origin_y:", origin_y, "origin_z:", origin_z)
 
         # Create mesh and find z_offset where it intersects points
@@ -174,9 +175,7 @@ def extracting_tree_crown_points(laz_path, out_low_las, las_folder_path, ring_fo
             mesh_copy = ring_mesh.copy()
             mesh_copy.apply_transform(T)
 
-            ring_folder = ring_folder_path + "/" + str(j)
-            os.makedirs(ring_folder, exist_ok=True)
-            mesh_copy.export(os.path.join(ring_folder, "higher_ring.stl"))
+            mesh_copy.export(os.path.join(ring_folder_path, "higher_annulus_" + str(f) + ".stl"))
 
             ring_points = points_inside_ring(las, origin_x, origin_y, z_offset, inner_radius, outer_radius, height)
 
@@ -190,16 +189,14 @@ def extracting_tree_crown_points(laz_path, out_low_las, las_folder_path, ring_fo
         # Remove stem points up to detected height
         points_above = func_points_inside_inner_higher_ring(las, origin_x, origin_y, z_offset, inner_radius, height)
 
-        if len(points_above.z) == 0:
-            print(f"No points in ring at iteration {j}, skipping deletion.")
-            continue
         print("Number of stem points: ", len(points_above.z))
         minimum_height = min(points_above.z)
-        # print("Minimum Height: ", minimum_height)
 
         # Compute deletion mask from current filtered_las
         deletion_mask = delete_points(las, origin_x, origin_y, inner_radius, minimum_height)
         combined_deletion.append(deletion_mask)
+
+        f += 1
 
     return combined_deletion
 
