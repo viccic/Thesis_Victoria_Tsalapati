@@ -1,8 +1,0 @@
-Voxel grid export log
-=====================
-Voxel size: 0.5 m
-
-Maximum number of points inside a voxel: 45
-Minimum number of points inside a voxel: 0
-Total voxels saved at leaves: 111682
-Total voxels saved at branches: 145302
