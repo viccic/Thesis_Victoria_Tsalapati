@@ -1,0 +1,1 @@
+Place the input point cloud in this folder.

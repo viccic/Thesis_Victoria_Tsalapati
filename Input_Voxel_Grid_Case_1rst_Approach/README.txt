@@ -1,0 +1,1 @@
+Please place the input point cloud files of trees without leaves (named as Branches.las or configure the las name) and of leaves (named as Leaves.las or configure the las name) in this folder.
