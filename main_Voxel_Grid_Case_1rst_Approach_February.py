@@ -60,7 +60,7 @@ def main():
     # Define the location of files
     script_dir = os.path.dirname(os.path.abspath(__file__))
     input_path = os.path.join(script_dir, "Input_Voxel_Grid_Case_1rst_Approach_February")
-    trees_las_file = [f for f in os.listdir(input_path) if f.endswith(".las")]
+    trees_las_file = [f for f in os.listdir(input_path) if f.endswith((".LAZ",".las",".laz"))]
     trees_las_path = os.path.join(input_path, trees_las_file[0])
 
     # Create the outputs
