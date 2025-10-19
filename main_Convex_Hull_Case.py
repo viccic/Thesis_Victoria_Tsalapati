@@ -7,7 +7,7 @@ import os
 # Define the location of files
 script_dir = os.path.dirname(os.path.abspath(__file__))
 input_path = os.path.join(script_dir, "Input_Convex_Hull_Case")
-las_file = [f for f in os.listdir(input_path) if f.endswith(".las")]
+las_file = [f for f in os.listdir(input_path) if f.endswith((".LAZ",".las",".laz"))]
 base_name, _ = os.path.splitext(las_file[0])
 initial_las_path = os.path.join(input_path, las_file[0])
 

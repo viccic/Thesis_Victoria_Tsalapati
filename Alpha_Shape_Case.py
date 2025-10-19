@@ -7,7 +7,7 @@ import os
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 input_path = os.path.join(script_dir, "Input_Alpha_Shape_Case")
-las_files = [f for f in os.listdir(input_path) if f.endswith(".las")]
+las_files = [f for f in os.listdir(input_path) if f.endswith((".LAZ",".las",".laz"))]
 
 for individual in las_files:
         print("Processing the tree file with name " + str(individual) + "...")
