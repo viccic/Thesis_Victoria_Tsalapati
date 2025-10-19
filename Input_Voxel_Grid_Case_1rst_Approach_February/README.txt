@@ -1,0 +1,1 @@
+Please place the input point cloud files of trees without leaves (named as Trees.las or configure the las name) in this folder.
