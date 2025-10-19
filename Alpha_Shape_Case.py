@@ -4,7 +4,9 @@ from alphashape import alphashape
 import trimesh
 from shapely.geometry import MultiPolygon
 import os
+import time
 
+start_time = time.time()
 script_dir = os.path.dirname(os.path.abspath(__file__))
 input_path = os.path.join(script_dir, "Input_Alpha_Shape_Case")
 las_files = [f for f in os.listdir(input_path) if f.endswith((".LAZ",".las",".laz"))]
@@ -79,4 +81,12 @@ for individual in las_files:
 
             with open(obj_centered_path, "w") as f:
                 f.writelines(new_lines)
+
+txt_file_path_time = os.path.join(output_path, "Processing_time.txt")
+end_time = time.time()
+
+# Open the file
+with open(txt_file_path_time, 'a') as f:
+    line = "Elapsed time: {:.2f} seconds".format(end_time - start_time)
+    f.write(line + "\n")
 

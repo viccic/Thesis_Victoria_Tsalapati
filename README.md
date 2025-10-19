@@ -38,12 +38,19 @@ This repository contains the executables used to generate geometric 3D tree repr
   2. `<name of input point cloud file>_Tree_crown.ply`
   3. `<name of input point cloud file>__Tree_Crown_convex_hull.obj`
 
+### Voxel Grid Case (1rst approach) for trees without canopy
+
+- Place the input point cloud files of trees without leaves in the **Input_Voxel_Grid_Case_1rst_Approach** folder
+- Run *main_Voxel_Grid_Case_1rst_Approach_February.py* 
+- Access the results per voxel size inside the **Output_Voxel_Grid_Case_1rst_Approach_February** folder:
+   1. OBJ file of the voxel grid of each size,
+   2. TXT file containing the processing duration.
  
 ### Voxel Grid Case (1rst approach) for trees with canopy
 
 - Place the input point cloud files of trees without leaves (named as *Branches.las* or configure the las name) and of leaves (named as *Leaves.las* or configure the las name) in the **Input_Voxel_Grid_Case_1rst_Approach** folder
-- Run *main_Voxel_Grid_Case_1rst_Approach.py* 
-- Access the results per voxel size inside the **Output_Voxel_Grid_Case_1rst_Approach** folder:
+- Run *main_Voxel_Grid_Case_1rst_Approach_June.py* 
+- Access the results per voxel size inside the **Output_Voxel_Grid_Case_1rst_Approach_June** folder:
   1. XYZ files of *Branches.las* and *Leaves.las*, 
   2. LAS file of `leaves_converted.las` (LAS file of leaves with only the following fields: X, Y, Z, intensity and label,
   3. LAS file of `SyntheticLAS.las` (LAS file branches and leaves with only the following fields: X, Y, Z, intensity and label,

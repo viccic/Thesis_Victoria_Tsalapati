@@ -2,7 +2,9 @@ import laspy
 import open3d as o3d
 import numpy as np
 import os
+import time
 
+start_time = time.time()
 def create_voxel(x, y, z, size):
     half_size = size / 2
     vertices = [
@@ -55,8 +57,9 @@ def voxelize_las(las_point_cloud, voxel_size):
     pcd.points = o3d.utility.Vector3dVector(points)
     return o3d.geometry.VoxelGrid.create_from_point_cloud(pcd, voxel_size)
 
+start_time = time.time()
 def main():
-
+    start_time = time.time()
     # Define the location of files
     script_dir = os.path.dirname(os.path.abspath(__file__))
     input_path = os.path.join(script_dir, "Input_Voxel_Grid_Case_1rst_Approach_February")
@@ -85,6 +88,14 @@ def main():
         generate_obj_voxel_from_dictionary(centers, voxel_size, output_obj_file_path)
 
         print(f"Voxel grid of size of {i} m completed.")
+
+    txt_file_path_time = os.path.join(output_path, "Processing_time.txt")
+    end_time = time.time()
+
+    # Open the file
+    with open(txt_file_path_time, 'a') as f:
+        line = "Elapsed time: {:.2f} seconds".format(end_time - start_time)
+        f.write(line + "\n")
 
 if __name__ == "__main__":
     main()
