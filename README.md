@@ -79,12 +79,13 @@ This repository contains the executables used to generate geometric 3D tree repr
 
 ## Nearest Voxel Distance Distribution Generator: 
 It accepts a LAS file and returns a png file of the Nearest Voxel Distance Distributions based on the
-voxel grids of sizes of 0.03, 0.05, 0.07, 0.1, 0.3 and 0.5 derived from it.
+voxel grids of sizes of 0.03, 0.05, 0.07, 0.1, 0.3 and 0.5 derived from it. Please open the code and make the suitable configurations.
 
 ## Error Distribution Histogram Generator: 
 It processes the csv files of sensor data and of simulated data and prints the RMSE and MBE values and returns 
 a png file of the Error Distribution Histogram. CSV files should include only the values in a column with dates.
+Please open the code and make the suitable configurations.
 
 ## MBE Time Series Generator (for clear-sky, cloudy and intermediate sky conditions):
-It processes the range of hours of a list the csv files of sensor data and of simulated data of clear-sky, cloudy and intermediate sky conditions and prints the MBE values for each sky condition and returns 
-a png file of the MBE Time Series. CSV files should include first the column with dates and second the column with values.
+It processes the range of hours as a list and the csv files of sensor data and of simulated data of clear-sky, cloudy and intermediate sky conditions and prints the MBE values for each sky condition and returns 
+a png file of the MBE Time Series. CSV files should include first the column with dates and second the column with values. Please open the code and make the suitable configurations.
