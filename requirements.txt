@@ -6,3 +6,4 @@ alphashape
 trimesh
 shapely
 scikit-learn
+scipy
