@@ -3,8 +3,9 @@ import io
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def error_st_dev(mean_error_array, std_error_array, sensor_path, simulation_path, hours):
-    for hour in hours:
+    for hour in range(hours[0], hours[1]):
         sensor_values = []
         simulation_values = []
 
@@ -46,7 +47,8 @@ def error_st_dev(mean_error_array, std_error_array, sensor_path, simulation_path
     return mean_error_array, std_error_array
 
 def diagrams(mean_error_array_clear_sky, std_error_array_clear_sky, mean_error_array_cloudy, std_error_array_cloudy, mean_error_array_intermediate, std_error_array_intermediate, hours_input):
-    hours = np.arange(hours_input)
+    print(hours_input[0], hours_input[1])
+    hours = np.arange(hours_input[0], hours_input[1])
 
     x = np.arange(len(hours))
     w = 0.25  # bar width
@@ -80,7 +82,7 @@ def diagrams(mean_error_array_clear_sky, std_error_array_clear_sky, mean_error_a
     print("mean_error_array_cloudy:", np.round(mean_error_array_cloudy,2))
     print("mean_error_array_intermediate:", np.round(mean_error_array_intermediate,2))
 
-range_of_hours = "insert the range of hours you wish to include in the time series"
+range_of_hours = "insert as a list the range of hours you wish to include in the time series"
 
 sensor_path_clear_sky = "/path/to/csv/clear_sky/sensor/data"
 simulation_path_clear_sky = "/path/to/csv/clear_sky/simulation/data"

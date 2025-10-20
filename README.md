@@ -87,4 +87,4 @@ a png file of the Error Distribution Histogram. CSV files should include only th
 
 ## MBE Time Series Generator (for clear-sky, cloudy and intermediate sky conditions):
 It processes the range of hours of a list the csv files of sensor data and of simulated data of clear-sky, cloudy and intermediate sky conditions and prints the MBE values for each sky condition and returns 
-a png file of the MBE Time Series.
+a png file of the MBE Time Series. CSV files should include first the column with dates and second the column with values.
