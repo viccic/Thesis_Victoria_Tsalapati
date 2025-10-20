@@ -27,12 +27,12 @@ def cubes(xyz_ply, size, output_obj_file_path):
         ]
         # Define cube faces (indices into the vertex list)
         faces = [
-            (1, 2, 3, 4),  # Front face
-            (5, 6, 7, 8),  # Back face
-            (1, 5, 8, 4),  # Left face
-            (2, 6, 7, 3),  # Right face
-            (4, 3, 7, 8),  # Top face
-            (1, 2, 6, 5),  # Bottom face
+            (4, 3, 2, 1),
+            (5, 6, 7, 8),
+            (8, 7, 3, 4),
+            (8, 4, 1, 5),
+            (1, 2, 6, 5),
+            (3, 7, 6, 2)
         ]
         return vertices, faces
 

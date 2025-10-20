@@ -18,12 +18,12 @@ def create_voxel(x, y, z, size):
         (x - half_size, y + half_size, z + half_size),
     ]
     faces = [
-        (1, 2, 3, 4),
+        (4, 3, 2, 1),
         (5, 6, 7, 8),
-        (1, 5, 8, 4),
-        (2, 6, 7, 3),
-        (4, 3, 7, 8),
+        (8, 7, 3, 4),
+        (8, 4, 1, 5),
         (1, 2, 6, 5),
+        (3, 7, 6, 2)
     ]
     return vertices, faces
 
